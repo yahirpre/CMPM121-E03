@@ -1,3 +1,7 @@
+// @deno-types="./asset-url.d.ts"
+import peaceSignURL from "./assets/peace-sign.png?no-inline";
+import sunglassesURL from "./assets/sunglasses.png?no-inline";
+
 const portrait = document.querySelector<HTMLDivElement>("#portrait")!;
 const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 
@@ -7,7 +11,7 @@ function buildFace() {
   const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   face.setAttribute("viewBox", "0 0 200 200");
   face.setAttribute("role", "img");
-  face.setAttribute("aria-label", "A neutral face");
+  face.setAttribute("aria-label", "A face with sunglasses and a peace sign");
 
   const head = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -63,6 +67,28 @@ function buildFace() {
   mouth.setAttribute("stroke-width", "4");
   mouth.setAttribute("stroke-linecap", "round");
   face.append(mouth);
+
+  const sunglassesImage = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "image",
+  );
+  sunglassesImage.setAttribute("href", sunglassesURL);
+  sunglassesImage.setAttribute("x", "25");
+  sunglassesImage.setAttribute("y", "10");
+  sunglassesImage.setAttribute("width", "150");
+  sunglassesImage.setAttribute("height", "150");
+  face.append(sunglassesImage);
+
+  const peaceSignImage = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "image",
+  );
+  peaceSignImage.setAttribute("href", peaceSignURL);
+  peaceSignImage.setAttribute("x", "-25");
+  peaceSignImage.setAttribute("y", "75");
+  peaceSignImage.setAttribute("width", "100");
+  peaceSignImage.setAttribute("height", "100");
+  face.append(peaceSignImage);
 
   return face;
 }
