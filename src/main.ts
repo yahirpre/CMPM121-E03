@@ -5,7 +5,7 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute("aria-label", "A freckly face");
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -69,3 +69,17 @@ spin.addEventListener("click", () => {
     { duration: 800, easing: "ease-in-out" },
   );
 });
+
+//draw 200 freckles
+for (let i = 0; i < 200; i++) {
+  const angle = Math.random() * 360;
+  const distance = 5 + Math.random() * 70;
+  const radius = 1 + Math.random() * 2;
+
+  const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  dot.setAttribute("cx", String(100 + distance * Math.cos(angle)));
+  dot.setAttribute("cy", String(100 + distance * Math.sin(angle)));
+  dot.setAttribute("r", String(radius));
+  dot.setAttribute("fill", "#efae79");
+  face.append(dot);
+}
