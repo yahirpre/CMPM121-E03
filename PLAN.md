@@ -8,7 +8,7 @@ EXPLORED - Original goal implemented
 
 Hands holdings items such as a phone or ice cream using stock images and photoshop if needed.
 
-EXPLORED - Diverted from plan, face now wears sunglasses and puts up a peace sign
+CHOSEN - Diverted from plan, face now wears sunglasses and puts up a peace sign
 
 # C - Colors and Curves Plan
 
